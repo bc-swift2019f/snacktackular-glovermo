@@ -33,6 +33,15 @@ class SpotDetailViewController: UIViewController {
         nameField.text = spot.name
         addressField.text = spot.address
     }
+    
+    func leaveViewController() {
+        let isPresentingInAddMode = presentingViewController is UINavigationController
+        if isPresentingInAddMode {
+            dismiss(animated: true, completion: nil)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+    }
 
     @IBAction func photoButtonPressed(_ sender: UIButton) {
     }
@@ -41,6 +50,15 @@ class SpotDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        spot.saveData() { success in
+            if success {
+                //Return to SpotsDetailViewController
+                //We can use the cancel code here because don't need to explicitly pass back data. We'll instead use a Firebase feature that "listens" for updates to Spots and reloads them automatically in SpotsDetailViewController
+                self.leaveViewController()
+            } else {
+                print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+            }
+        }
     }
     
     @IBAction func lookupPlaceButtonPressed(_ sender: UIBarButtonItem) {
@@ -50,12 +68,7 @@ class SpotDetailViewController: UIViewController {
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
-        let isPresentingInAddMode = presentingViewController is UINavigationController
-        if isPresentingInAddMode {
-            dismiss(animated: true, completion: nil)
-        } else {
-            navigationController?.popViewController(animated: true)
-        }
+        leaveViewController()
     }
 }
 
