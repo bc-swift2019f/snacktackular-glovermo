@@ -35,6 +35,15 @@ class Review {
         self.init(title: "", text: "", rating: 0, reviewerUserID: currentUserID, date: Date(), documentID: "")
     }
     
+    convenience init(dictionary: [String: Any]) {
+        let title = dictionary["title"] as! String? ?? ""
+        let text = dictionary["text"] as! String? ?? ""
+        let rating = dictionary["rating"] as! Int? ?? 0
+        let reviewerUserID = dictionary["reviewerUserID"] as! String? ?? ""
+        let date = dictionary["date"] as! Date? ?? Date()
+        self.init(title: title, text: text, rating: rating, reviewerUserID: reviewerUserID, date: date, documentID: "")
+    }
+    
     func saveData(spot: Spot, completed: @escaping (Bool) -> ()) {
         let db = Firestore.firestore()
         // Create the dictionary representing the data we want to save
