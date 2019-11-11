@@ -15,12 +15,22 @@ class ReviewTableViewController: UITableViewController {
     @IBOutlet weak var postedByLabel: UILabel!
     @IBOutlet weak var reviewTitle: UITextField!
     @IBOutlet weak var reviewDateLabel: UILabel!
-    
     @IBOutlet weak var reviewView: UITextView!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var deleteButton: NSLayoutConstraint!
     @IBOutlet weak var buttonsBackgroundView: UIView!
+    @IBOutlet var starButtonCollection: [UIButton]!
+    
+    var rating = 0 {
+        didSet {
+            for starButton in starButtonCollection {
+                let image = UIImage(named: (starButton.tag < rating ? "star-filled" : "star-empty"))
+                starButton.setImage(image, for: .normal)
+            }
+            print(">>> new rating: \(rating)")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +51,10 @@ class ReviewTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func starButtonPressed(_ sender: UIButton) {
+        rating = Int(sender.tag) + 1
+    }
+    
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
     }
     
@@ -49,6 +63,7 @@ class ReviewTableViewController: UITableViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        rating = Int(sender.tag) + 1
     }
     
     @IBAction func reviewTitleChanged(_ sender: UITextField) {
