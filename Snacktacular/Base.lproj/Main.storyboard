@@ -684,12 +684,12 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="3bc-r4-emi">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2o7-I5-SfK">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2o7-I5-SfK">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="nI8-Yc-Al0" id="GFG-SA-bdX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cIa-QD-lQl">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="cIa-QD-lQl">
                             <connections>
                                 <action selector="saveButtonPressed:" destination="nI8-Yc-Al0" id="qhU-aC-dIf"/>
                             </connections>
@@ -700,12 +700,12 @@
                         <outlet property="addressLabel" destination="oAB-gV-Btp" id="bX0-Op-D5D"/>
                         <outlet property="buttonsBackgroundView" destination="DcV-wv-hlG" id="nGr-yh-inV"/>
                         <outlet property="cancelBarButton" destination="2o7-I5-SfK" id="yqx-fX-vjo"/>
-                        <outlet property="deleteButton" destination="TJc-FR-pfO" id="nIr-FK-7yv"/>
+                        <outlet property="deleteButton" destination="Cph-iS-MOr" id="qOx-8r-p9R"/>
                         <outlet property="nameLabel" destination="sRW-Fo-jau" id="q3N-qE-h15"/>
                         <outlet property="postedByLabel" destination="ZHd-Rc-Kpf" id="ma5-hQ-lC5"/>
                         <outlet property="reviewDateLabel" destination="6qr-Sp-LEt" id="trK-tn-x7S"/>
-                        <outlet property="reviewTitle" destination="XCG-IP-bJK" id="Jrz-cV-fv6"/>
-                        <outlet property="reviewView" destination="DeR-Lu-z2s" id="0zC-Rm-Rfz"/>
+                        <outlet property="reviewTextView" destination="DeR-Lu-z2s" id="0zC-Rm-Rfz"/>
+                        <outlet property="reviewTitleField" destination="XCG-IP-bJK" id="Jrz-cV-fv6"/>
                         <outlet property="saveBarButton" destination="cIa-QD-lQl" id="9d0-aC-r2H"/>
                         <outletCollection property="starButtonCollection" destination="c9a-ke-LqX" collectionClass="NSMutableArray" id="MNx-Rj-O1U"/>
                         <outletCollection property="starButtonCollection" destination="BKT-2b-dO4" collectionClass="NSMutableArray" id="RUb-uE-dIP"/>
